@@ -7,6 +7,13 @@ app.listen(PORT, function () {
     console.log("Server is running...");
 });
 
+// share api access all
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+})
+
 // config to connect mysql
 const configDB = {
     host: "139.180.186.20", // localhost hoặc địa chỉ IP của server
